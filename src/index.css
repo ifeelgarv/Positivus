@@ -6,23 +6,43 @@ html {
     font-family: "Space Grotesk", sans-serif;
 }
 
-@keyframes marquee {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-.animate-marquee {
-    display: flex;
-    animation: marquee 15s linear infinite;
-    /* width: max-content; */
-}
-
 :root {
     --primary: #B9FF66;
     --secondary: #191A23;
     --tertiary: #F3F3F3;
 }
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .marquee-content {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+  }
+  
+  .marquee-logo {
+    height: 3rem;
+    width: auto;
+    margin: 0 2rem;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+  }
+  
+  .marquee-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
