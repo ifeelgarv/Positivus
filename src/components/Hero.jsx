@@ -10,7 +10,7 @@ const Hero = () => {
           {/* Left side */}
           <div className="md:w-[56%]">
             <div>
-              <h1 className="text-[5vw] sm:text-[28px] md:text-[3.7vw] sm:text-left text-center leading-none font-semibold text-[var(--secondary)]">
+              <h1 className="text-[5.5vw] sm:text-[28px] md:text-[3.7vw] sm:text-left text-center leading-none font-semibold text-[var(--secondary)]">
                 Navigating the digital landscape for success
               </h1>
 
@@ -27,7 +27,7 @@ const Hero = () => {
           </div>
 
           {/* Right side */}
-          <div className="w-full md:w-[56%] order-first md:order-last -mt-5 md:mt-0">
+          <div className="w-full md:w-[56%] order-first md:order-last -mt-12 md:mt-0">
             <img
               src={bannerImage}
               alt=""

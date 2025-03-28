@@ -9,7 +9,7 @@ const Services = () => {
         {/* Headline & Description */}
         <div className="flex flex-col md:flex-row gap-12 mb-20 items-center text-center md:text-left">
           <div className="flex-shrink-0 bg-[var(--primary)] text-black py-3 px-12 rounded-md">
-            <h2 className="text-4xl sm:text-4xl md:text-6xl font-medium">Services</h2>
+            <h2 className="text-4xl sm:text-3xl md:text-6xl font-medium">Services</h2>
           </div>
           <div className="md:w-2/3">
             <p className="text-[20px] text-[var(--secondary)]">
@@ -23,22 +23,22 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Map through servicesData to create cards dynamically */}
           {servicesData.map((service, index) => (
-            <div key={index} className={`flex flex-col sm:flex-row md:justify-between md:items-center gap-6 p-6 rounded-3xl border border-[#191A23] cursor-pointer ${service.backgroundColor} ${service.textColor}`}>
-              <div className="md:w-1/2 flex flex-col h-full justify-between">
+            <div key={index} className={`flex flex-col sm:flex-row md:justify-between md:items-center gap-4 sm:gap-6 p-4 sm:p-6 rounded-3xl border border-[#191A23] cursor-pointer ${service.backgroundColor} ${service.textColor}`}>
+              <div className="md:w-1/2 flex flex-col h-full justify-between space-y-4">
                 <button
-                  className={`text-xl font-semibold mb-2 rounded-sm sm:w-60 ${service.foregroundColor} w-full py-1.5`}
+                  className={`text-base sm:text-2xl font-semibold rounded-sm w-full py-1.5 ${service.foregroundColor}`}
                 >
                   {service.title}
                 </button>
                 <a href="#" className={`flex items-center gap-4 py-2 rounded-md text-black hover:bg-opacity-80 hover:text-black/80`}>
                   <img src={LinkIcon} alt="" className="size-6 rounded-full" />
-                  <span className="text-lg font-medium">Learn More</span>
+                  <span className="text-base sm:text-lg font-medium">Learn More</span>
                 </a>
               </div>
 
               {/* image */}
               <div className="md:w-1/2 order-first md:order-last">
-                <img src={service.image} alt="" className="w-full object-cover rounded-md mb-4"/>
+                <img src={service.image} alt="" className="w-full object-cover rounded-md mb-2 h-auto"/>
               </div>
             </div>
           ))}
