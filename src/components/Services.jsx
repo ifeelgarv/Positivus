@@ -7,9 +7,9 @@ const Services = () => {
     <section className="pt-24 pb-16 bg-white" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Headline & Description */}
-        <div className="flex flex-col md:flex-row gap-12 mb-20 items-center text-center md:text-left">
-          <div className="flex-shrink-0 bg-[var(--primary)] text-black py-3 px-12 rounded-md">
-            <h2 className="text-4xl sm:text-3xl md:text-6xl font-medium">Services</h2>
+        <div className="flex flex-col md:flex-row gap-8 mb-20 items-center text-center md:text-left">
+          <div className="flex-shrink-0 bg-[var(--primary)] text-black py-3 px-8 rounded-md">
+            <h2 className="text-4xl sm:text-3xl font-medium">Services</h2>
           </div>
           <div className="md:w-2/3">
             <p className="text-[20px] text-[var(--secondary)]">
