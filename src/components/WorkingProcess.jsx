@@ -17,19 +17,43 @@ const WorkingProcess = () => {
   return (
     <section className="pt-24 pb-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Headline and description */}
-        <div className="flex flex-col md:flex-row gap-8 mb-20 items-center text-center md:text-left">
-          <div className="flex-shrink-0 bg-[var(--primary)] text-black py-3 px-8 rounded-md">
+        {/* Headline & Description */}
+        <motion.div
+          className="flex flex-col md:flex-row gap-8 mb-20 items-center text-center md:text-left"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.div
+            className="flex-shrink-0 bg-[var(--primary)] text-black py-3 px-8 rounded-md"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.2,
+              type: "spring",
+              stiffness: 200,
+            }}
+          >
             <h2 className="text-4xl sm:text-3xl font-medium">
               Our Working Process
             </h2>
-          </div>
-          <div className="md:w-1/3">
+          </motion.div>
+          <motion.div
+            className="md:w-1/2"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.4,
+              ease: "easeOut",
+            }}
+          >
             <p className="text-[20px] text-[var(--secondary)]">
               Step-by-Step Guide to Achieving Your Business Goals
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Accordion section */}
         <div>
@@ -59,18 +83,24 @@ const WorkingProcess = () => {
                   <span className="text-[var(--secondary)] font-extrabold text-lg sm:text-2xl mr-4">
                     {items.number}
                   </span>
-                  <h3 className="text-base sm:text-xl font-semibold">{items.question}</h3>
+                  <h3 className="text-base sm:text-xl font-semibold">
+                    {items.question}
+                  </h3>
                 </div>
 
-                <motion.div 
+                <motion.div
                   className="bg-white text-black border p-1 sm:p-1.5 rounded-full flex-shrink-0 ml-2"
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
                 >
-                  {openIndex === index ? <FaMinus size={14} /> : <FaPlus size={14} />}
+                  {openIndex === index ? (
+                    <FaMinus size={14} />
+                  ) : (
+                    <FaPlus size={14} />
+                  )}
                 </motion.div>
               </motion.button>
-              
+
               <AnimatePresence>
                 {openIndex === index && (
                   <motion.div
@@ -82,7 +112,7 @@ const WorkingProcess = () => {
                   >
                     <div className="p-4 bg-[var(--primary)] text-[var(--secondary)]">
                       <hr className="mt-0 mb-5 border-black" />
-                      <motion.p 
+                      <motion.p
                         initial={{ y: 10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.1, duration: 0.3 }}

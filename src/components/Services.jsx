@@ -1,23 +1,49 @@
 import React from "react";
 import servicesData from "../utils/servicesCardData";
 import LinkIcon from "../assets/link-icon.png";
+import { motion } from "framer-motion";
 
 const Services = () => {
   return (
     <section className="pt-24 pb-16 bg-white" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Headline & Description */}
-        <div className="flex flex-col md:flex-row gap-8 mb-20 items-center text-center md:text-left">
-          <div className="flex-shrink-0 bg-[var(--primary)] text-black py-3 px-8 rounded-md">
-            <h2 className="text-4xl sm:text-3xl font-medium">Services</h2>
-          </div>
-          <div className="md:w-2/3">
+        <motion.div
+          className="flex flex-col md:flex-row gap-8 mb-20 items-center text-center md:text-left"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.div
+            className="flex-shrink-0 bg-[var(--primary)] text-black py-3 px-8 rounded-md"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.2,
+              type: "spring",
+              stiffness: 200,
+            }}
+          >
+            <h2 className="text-4xl sm:text-3xl font-medium">
+              Services
+            </h2>
+          </motion.div>
+          <motion.div
+            className="md:w-2/3"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.4,
+              ease: "easeOut",
+            }}
+          >
             <p className="text-[20px] text-[var(--secondary)]">
-              At our digital marketing agency, we offer a range of services to
-              help businesses grow and succeed online. These services include:
+              At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Services Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
