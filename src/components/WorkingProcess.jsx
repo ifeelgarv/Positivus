@@ -6,28 +6,31 @@ import processSteps from "../utils/processSteps";
 const WorkingProcess = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
-  function handleToggle(index) {
+  // Toggle accordion open/close
+  const handleToggle = (index) => {
     if (openIndex === index) {
-      setOpenIndex(-1);
+      setOpenIndex(-1); // Close if already open
     } else {
-      setOpenIndex(index);
+      setOpenIndex(index); // Open new one
     }
-  }
+  };
 
   return (
     <section className="pt-24 pb-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Headline & Description */}
+        {/* Heading and Description */}
         <motion.div
           className="flex flex-col md:flex-row gap-8 mb-20 items-center text-center md:text-left"
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ amount: 0.2 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.div
             className="flex-shrink-0 bg-[var(--primary)] text-black py-3 px-8 rounded-md"
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ amount: 0.2 }}
             transition={{
               duration: 0.5,
               delay: 0.2,
@@ -42,7 +45,8 @@ const WorkingProcess = () => {
           <motion.div
             className="md:w-1/2"
             initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ amount: 0.2 }}
             transition={{
               duration: 0.7,
               delay: 0.4,
@@ -54,14 +58,13 @@ const WorkingProcess = () => {
             </p>
           </motion.div>
         </motion.div>
-
-        {/* Accordion section */}
         <div>
           {processSteps.map((items, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0.9 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ amount: 0.15 }}
               transition={{ duration: 0.3 }}
               className={`border mb-4 overflow-hidden bg-white rounded-lg shadow-lg ${
                 openIndex === index
@@ -73,6 +76,7 @@ const WorkingProcess = () => {
                 onClick={() => handleToggle(index)}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
+                transition={{ duration: 0.2 }}
                 className={`w-full text-left p-4 flex justify-between items-center focus:outline-none ${
                   openIndex === index
                     ? "bg-[var(--primary)]"
@@ -88,6 +92,7 @@ const WorkingProcess = () => {
                   </h3>
                 </div>
 
+                {/* Icon Animation */}
                 <motion.div
                   className="bg-white text-black border p-1 sm:p-1.5 rounded-full flex-shrink-0 ml-2"
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
@@ -100,7 +105,6 @@ const WorkingProcess = () => {
                   )}
                 </motion.div>
               </motion.button>
-
               <AnimatePresence>
                 {openIndex === index && (
                   <motion.div

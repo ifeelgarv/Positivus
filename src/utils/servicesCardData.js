@@ -23,7 +23,7 @@ const servicesData = [
         textColor: 'text-blue-900'
     },
     {
-        title: 'Social Media Marketing',
+        title: 'Social Marketing',
         description: 'Engage your audience and grow your brand on social media platforms.',
         image: SmmImage,
         backgroundColor: 'bg-green-100',
