@@ -33,7 +33,10 @@ const Hero = () => {
                 media marketing, and content creation.
               </p>
 
-              <button className="text-[5vw] cursor-pointer sm:text-[25px] px-8 sm:px-10 py-5 sm:py-6 bg-black text-white font-semibold rounded-[15px] hover:bg-[var(--primary)] hover:text-black transition-all duration-300 block sm:inline-block mx-auto sm:mx-0">
+              <button
+                type="button"
+                className="text-[5vw] sm:text-[25px] px-8 sm:px-10 py-5 sm:py-6 bg-black text-white font-semibold rounded-[15px] hover:bg-[var(--primary)] hover:text-black transition-all duration-300 block sm:inline-block mx-auto sm:mx-0"
+              >
                 Book a consultation
               </button>
             </div>
@@ -64,4 +67,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
