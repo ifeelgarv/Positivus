@@ -30,15 +30,19 @@ const Navbar = () => {
                   <img src="/logo.png" alt="" className="h-8" />
                 </a>
               </div>
-              
+
               {/* For Larger Devices */}
               <div className="space-x-8 hidden md:flex items-center">
                 {menuItems.map((item, index) => (
                   <a
                     onClick={() => handleMenuClick(item.name)}
-                    className={`block text-black px-2 hover:bg-[var(--primary)] rounded-sm hover:underline underline-offset-4 transition-all duration-300 ${
-                      activeItem === item.name ? 'bg-[var(--primary)] text-black underline underline-offset-4' : ''
-                    }`}
+                    className={`group relative px-2 py-1 transition-all duration-300
+        ${
+          activeItem === item.name
+            ? "text-black after:bg-[var(--primary)] after:w-full"
+            : "text-black after:bg-black after:w-0 group-hover:after:w-full"
+        }
+        after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:transition-all after:duration-300`}
                     key={index}
                     href={item.href}
                   >
@@ -52,7 +56,7 @@ const Navbar = () => {
                   Request a quote
                 </a>
               </div>
-              
+
               {/* Mobile Menu Button having Animated Hamburger */}
               <div className="md:hidden flex items-center">
                 <button
@@ -73,32 +77,38 @@ const Navbar = () => {
                     className="feather feather-menu"
                     aria-hidden="true"
                   >
-                    <line 
-                      x1="3" 
-                      y1="6" 
-                      x2="21" 
-                      y2="6" 
-                      className={`origin-left transition-all duration-300 ${isOpen ? 'rotate-45 -translate-y-1' : ''}`}
+                    <line
+                      x1="3"
+                      y1="6"
+                      x2="21"
+                      y2="6"
+                      className={`origin-left transition-all duration-300 ${
+                        isOpen ? "rotate-45 -translate-y-1" : ""
+                      }`}
                     />
-                    <line 
-                      x1="3" 
-                      y1="12" 
-                      x2="21" 
-                      y2="12" 
-                      className={`transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}
+                    <line
+                      x1="3"
+                      y1="12"
+                      x2="21"
+                      y2="12"
+                      className={`transition-all duration-300 ${
+                        isOpen ? "opacity-0" : ""
+                      }`}
                     />
-                    <line 
-                      x1="3" 
-                      y1="18" 
-                      x2="21" 
-                      y2="18" 
-                      className={`origin-left transition-all duration-300 ${isOpen ? '-rotate-45 translate-y-1' : ''}`}
+                    <line
+                      x1="3"
+                      y1="18"
+                      x2="21"
+                      y2="18"
+                      className={`origin-left transition-all duration-300 ${
+                        isOpen ? "-rotate-45 translate-y-1" : ""
+                      }`}
                     />
                   </svg>
                 </button>
               </div>
             </div>
-            
+
             {/* Mobile Menu */}
             <AnimatePresence>
               {isOpen && (
@@ -113,7 +123,7 @@ const Navbar = () => {
                       <a
                         onClick={() => handleMenuClick(item.name)}
                         className={`block text-black px-2 py-2 hover:bg-[var(--primary)] rounded-sm hover:underline underline-offset-4 transition-all duration-300 ${
-                          activeItem === item.name ? 'bg-[var(--primary)]' : ''
+                          activeItem === item.name ? "bg-[var(--primary)]" : ""
                         }`}
                         key={index}
                         href={item.href}
